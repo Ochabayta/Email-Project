@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email project </title>
+
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: "Tahoma", "Verdana", "Segoe", sans-serif;
+		}
+
+		.contactForm {
+			align-items: flex-start;
+			display: flex;
+			justify-content: flex-start;
+		}
+		.contactForm > div {
+			height: 100vh;
+			padding: 5%;
+			width: 50%;
+		}
+		.contactForm > div:first-of-type {
+			background-color: #ffb84d;
+		}
+		.contactForm > div:nth-of-type(2) {
+			background-image: url("images/mail.png");
+			background-position: 50% 90%;
+			background-repeat: no-repeat;
+			background-size: 55%;
+		}
+		.contactForm > div > form {
+			display: flex;
+			flex-direction: column;
+		}
+		.contactForm > div > form > label {
+			margin-bottom: 10px;
+		}
+		.contactForm > div > form > input {
+			font-size: 1em;
+			margin-bottom: 25px;
+		}
+		.contactForm > div > form > textarea {
+			font-size: 1em;
+			height: 115px;
+			margin-bottom: 35px;
+			resize: none;
+		}
+		.contactForm input[type=submit], .contactForm input[type=reset] {
+			width: 75px;
+		}
+
+		@media only screen and (min-width: 480px) and (max-width: 767px) {
+		}
+		@media only screen and (min-width: 768px) {
+		}
+	</style>
+
+	<script>
+
+		function setupJavascript() {
+
+			function formTest() {
+				document.getElementById("toEmail").value = "unknow@gmail.com";
+				document.getElementById("firstName").value = "unknow";
+				document.getElementById("fromEmail").value = "unknow_unknow@disneymail.com";
+				document.getElementById("subject").value = "unknow?";
+				document.getElementById("message").innerHTML = "I couldn't find unknow. Have you seen him anywhere?";
+			}
+
+			function clearResults() {
+				document.getElementById("message").innerHTML = "";
+			}
+
+			document.getElementById("formTestButton").onclick = formTest;
+			document.getElementById("resetButton").onclick = clearResults;
+		}
+
+	</script>
+
+</head>
+
+<body onload="setupJavascript();">
+	<main>
+
+	<div class="contactForm">
+		<div>
+			<form action="" method="post">
+				<label for="toEmail">Send to</label>
+				<input type="email" id="toEmail" name="toEmail" />
+
+				<label for="firstName">First Name</label>
+				<input type="text" id="firstName" name="firstName" />
+
+				<label for="fromEmail">Email</label>
+				<input type="email" id="fromEmail" name="fromEmail" />
+
+				<label for="subject">Subject</label>
+				<input type="text" id="subject" name="subject" />
+
+				<label for="message">Message</label>
+				<textarea id="message" name="message"></textarea>
+
+				<div>
+					<input type="submit" value="Submit" />
+					<input id="resetButton" type="reset" value="Reset" />
+					<input id="formTestButton" type="button" value="Form Test" />
+				</div>
+			</form>
+		</div>
+		<div>
+			<h2> To: </h2><h2> From: </h2><h4> Subject: </h4><p> Name: </p><p></p><b> Mail not sent </b><p></p>		</div>
+	</div>
+
+	</main>
+</body>
+</html>
